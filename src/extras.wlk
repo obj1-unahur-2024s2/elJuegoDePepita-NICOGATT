@@ -2,13 +2,14 @@ import pepita.*
 import wollok.game.*
 
 object nido {
-
-	// Completar
+	method image() = "nido.png"
+	method position() = game.at(game.width() - 2, game.height() - 4)
 }
 
 object silvestre {
 
-	// Completar
+	method image() = "silvestre.png"
+	method position() = game.at(2, 1)
 
 }
 
