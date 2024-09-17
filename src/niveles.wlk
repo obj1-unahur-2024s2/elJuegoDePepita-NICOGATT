@@ -46,7 +46,7 @@ object config {
 	method configurarTeclas() {
 		keyboard.left().onPressDo({ 
 			pepita.irA(pepita.position().left(1))
-
+			pepita.moveteAIzquierda()
 		})
 		keyboard.right().onPressDo({ 
 			pepita.irA(pepita.position().right(1))
@@ -62,4 +62,3 @@ object config {
 
 	
 }
-

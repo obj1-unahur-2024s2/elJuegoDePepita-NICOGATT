@@ -32,20 +32,19 @@ object pepita {
 	}
 
 	method moveteADerecha() {
-		if(position.x() == game.width()) {
+		if(position.x() >= game.width() - 1) {
 			position = game.at(0, position.y())
 		} else {
-			position = game.at((game.width()).min(position.x() + 1),
-			position.y())
+			position = game.at(position.x() + 1, position.y())
 		}
 	}
 
 	method moveteAIzquierda() {
-		if(position.x() == 0 ) {
+		if(position.x() == -1 ) {
 			position = game.at(game.width() - 1, position.y())
+		} else {
+			position = game.at(position.x() - 1, position.y())
 		}
-		
-		
 	}
 }
 
