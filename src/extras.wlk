@@ -1,5 +1,6 @@
 import pepita.*
 import wollok.game.*
+import comidas.*
 
 object nido {
 	method image() = "nido.png"
@@ -7,9 +8,9 @@ object nido {
 }
 
 object silvestre {
+	var property position = game.at(3, 0)
 
 	method image() = "silvestre.png"
-	method position() = game.at(2, 1)
-
+ 
 }
 

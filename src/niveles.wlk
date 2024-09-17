@@ -45,17 +45,28 @@ object config {
 
 	method configurarTeclas() {
 		keyboard.left().onPressDo({ 
-			pepita.irA(pepita.position().left(1))
+			pepita.irA(pepita.position().left(0.5))
 			pepita.moveteAIzquierda()
 		})
 		keyboard.right().onPressDo({ 
-			pepita.irA(pepita.position().right(1))
+			pepita.irA(pepita.position().right(0.5))
 			pepita.moveteADerecha()
 		})
 		keyboard.up().onPressDo({pepita.irA(pepita.position().up(1))})
 		keyboard.down().onPressDo({pepita.irA(pepita.position().down(1))})
+		keyboard.m().onPressDo({
+			self.cambiarSeguidor()
+		})
 	}
 
+	method cambiarSeguidor() {
+		const seguidorActual = pepita.seguidor()
+		const seguidorSiguiente = seguidorActual.siguiente()
+		seguidorSiguiente.position(seguidorActual.position())
+		game.removeVisual(seguidorActual)
+		game.addVisual(seguidorSiguiente)
+		pepita.seguidor(seguidorSiguiente)
+	}
 	method configurarColisiones() {
 		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita)})
 	}
