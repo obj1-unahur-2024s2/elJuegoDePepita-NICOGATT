@@ -26,9 +26,12 @@ object pepita {
 	}
 
 	method irA(nuevaPosicion) {
-		self.vola(position.distance(nuevaPosicion))
-		position = nuevaPosicion
-		seguidor.position(game.at(3.max(position.x()), seguidor.position().y()))
+		if (not self.estaCansada()){
+			self.vola(position.distance(nuevaPosicion))
+			position = nuevaPosicion
+			seguidor.position(game.at(3.max(position.x()), seguidor.position().y()))
+		}
+		game.say(self, "Pepita tiene una energia de: " +  self.energia())
 	}
 
 	method estaCansada() {
