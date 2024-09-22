@@ -23,6 +23,7 @@ object tutorial2 {
 		game.addVisual(silvestre)
 		game.addVisual(pepita)
 		config.configurarTeclas()
+		pepita.bajar()
 	}
 
 }
@@ -37,6 +38,8 @@ object tutorial3 {
 		game.addVisual(pepita)
 		config.configurarTeclas()
 		config.configurarColisiones()
+		pepita.bajar()
+		pepita.pepitaHaGanado()
 	}
 
 }
@@ -45,18 +48,25 @@ object config {
 
 	method configurarTeclas() {
 		keyboard.left().onPressDo({ 
+			pepita.irA(pepita.position().left(0.5))
 			pepita.moveteAIzquierda()
-			pepita.irA(pepita.position().left(1))
 		})
 		keyboard.right().onPressDo({ 
+			pepita.irA(pepita.position().right(0.5))
 			pepita.moveteADerecha()
-			pepita.irA(pepita.position().right(1))
 		})
-		keyboard.up().onPressDo({pepita.irA(pepita.position().up(1))})
-		keyboard.down().onPressDo({pepita.irA(pepita.position().down(1))})
-		keyboard.m().onPressDo({
-			self.cambiarSeguidor()
+		keyboard.up().onPressDo({
+			pepita.irA(pepita.position().up(0.5))
+			pepita.moveteAbajo()
 		})
+		keyboard.down().onPressDo({
+			pepita.irA(pepita.position().down(0.5))
+			pepita.moveteArriba()
+		})
+		keyboard.c().onPressDo({
+			pepita.come(game.uniqueCollider(pepita))
+		})
+		
 	}
 
 	method cambiarSeguidor() {
@@ -71,5 +81,4 @@ object config {
 		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita)})
 	}
 
-	
 }
