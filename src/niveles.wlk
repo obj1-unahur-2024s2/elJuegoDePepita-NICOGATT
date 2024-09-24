@@ -39,7 +39,6 @@ object tutorial3 {
 		config.configurarTeclas()
 		config.configurarColisiones()
 		pepita.bajar()
-		pepita.pepitaHaGanado()
 	}
 
 }
@@ -78,7 +77,7 @@ object config {
 		pepita.seguidor(seguidorSiguiente)
 	}
 	method configurarColisiones() {
-		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita)})
+		game.onCollideDo(pepita, { algo => algo.teEncontro()})
 	}
 
 }

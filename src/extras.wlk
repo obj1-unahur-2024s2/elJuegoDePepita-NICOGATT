@@ -11,6 +11,10 @@ object silvestre {
 	var property position = game.at(3, 0)
 
 	method image() = "silvestre.png"
+
+	method teEncontro() {
+		pepita.haPerdido()
+	}
  
 }
 

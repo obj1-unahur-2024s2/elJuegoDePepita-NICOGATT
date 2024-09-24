@@ -32,9 +32,7 @@ object pepita {
 			position = nuevaPosicion
 			seguidor.position(game.at(3.max(position.x()), seguidor.position().y()))
 			game.say(self, "Pepita tiene una energia de: " +  self.energia())
-		} else {
-			game.stop()
-		}
+		} 
 	}
 
 	method estaCansada() {
@@ -80,7 +78,7 @@ object pepita {
 	method estaArribaDeSilvestre() {
 		return self.position() == silvestre.position()
 	}
-	method bajar() {
+	method bajar(){
 		game.onTick(800, "pepitaLaLinda", {
 			=> position = game.at(position.x(), 0.max(position.y() - 0.5))
 		})
@@ -88,8 +86,20 @@ object pepita {
 
 	method pepitaHaGanado() {
 		if(self.estaEnElNido()) {
-			game.say(null, "Ha ganado")
-		}
+			game.removeTickEvent("pepitaLaLinda")
+			game.say(self, "¡GANE!")
+			game.schedule(2000, {
+				=> game.stop()
+			})
+		} 
+	}
+
+	method haPerdido() {
+		game.removeTickEvent("pepitaLaLinda")
+		game.say(self, "¡PERDI!")
+		game.schedule(2000, {
+			=> game.stop()
+		})
 	}
 }
 
