@@ -8,6 +8,10 @@ object manzana {
 	var property position = game.at(5, 6)
 	method image() = "manzana.png"  
 	method energiaQueOtorga() = 200
+
+	method teEncontro() {
+
+	}
 }
 
 object alpiste {
@@ -17,6 +21,9 @@ object alpiste {
 	var property position = game.at(3, 5) 
 	method image() = "alpiste.png"
 	method energiaQueOtorga() = 200
+	method teEncontro() {
+		
+	}
 
 }
 

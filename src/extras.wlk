@@ -5,6 +5,9 @@ import comidas.*
 object nido {
 	method image() = "nido.png"
 	method position() = game.at(game.width() - 2, game.height() - 4)
+	method teEncontro() {
+		pepita.pepitaHaGanado()
+	}
 }
 
 object silvestre {
