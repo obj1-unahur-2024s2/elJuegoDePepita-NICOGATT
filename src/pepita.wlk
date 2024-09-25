@@ -32,7 +32,10 @@ object pepita {
 			position = nuevaPosicion
 			seguidor.position(game.at(3.max(position.x()), seguidor.position().y()))
 			game.say(self, "Pepita tiene una energia de: " +  self.energia())
-		} 
+		} else {
+			game.say(self, "¡PERDI!")
+			game.schedule(2000, {=> game.stop()})
+		}
 	}
 
 	method estaCansada() {
